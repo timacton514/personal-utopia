@@ -622,13 +622,16 @@ body { scrollbar-width: none; }
 }
 
 /* --- Story End --- */
-#story-end {
+.segment.ending-panel {
   text-align: center;
-  padding: 80px 0 60px;
-  opacity: 0.7;
+  border-left: none;
+  background: transparent;
+  padding: 80px 20px 60px;
+  margin: 40px 0;
+  opacity: 0.75;
 }
 
-#story-end .end-symbol {
+.end-symbol {
   font-size: 2rem;
   margin-bottom: 12px;
   cursor: pointer;
@@ -640,7 +643,7 @@ body { scrollbar-width: none; }
   background: rgba(0,255,136,0.04);
 }
 
-#story-end .end-symbol:hover {
+.end-symbol:hover {
   color: var(--cube-green);
   border-color: rgba(0,255,136,0.45);
   box-shadow: 0 0 28px rgba(0,255,136,0.2);
@@ -648,8 +651,15 @@ body { scrollbar-width: none; }
   background: rgba(0,255,136,0.1);
 }
 
-#story-end .end-symbol:active {
+.end-symbol:active {
   transform: scale(0.95);
+}
+
+.end-text {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  opacity: 0.5;
+  margin-bottom: 4px;
 }
 
 .restart-hint {

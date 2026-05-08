@@ -86,7 +86,7 @@ export const NOVEL_SEGMENTS = [
   },
   {
     "id": "div-0",
-    "side": "meta",
+    "side": "A",
     "type": "divider",
     "content": []
   },
@@ -245,7 +245,7 @@ export const NOVEL_SEGMENTS = [
   },
   {
     "id": "div-a-b",
-    "side": "meta",
+    "side": "A",
     "type": "divider",
     "content": []
   },
@@ -2577,6 +2577,26 @@ export const NOVEL_SEGMENTS = [
       {
         "text": "?&?：🤝",
         "style": "body"
+      }
+    ]
+  },
+  {
+    "id": "story-end",
+    "side": "B",
+    "type": "ending",
+    "character": null,
+    "content": [
+      {
+        "text": "?&?：🤝",
+        "style": "end-symbol"
+      },
+      {
+        "text": "— 故事已结束 —",
+        "style": "end-text"
+      },
+      {
+        "text": "点击握手，回到起点",
+        "style": "end-hint"
       }
     ]
   }

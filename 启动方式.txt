@@ -1,0 +1,2 @@
+进入本目录终端，执行python -m http.server 8080
+浏览器访问http://localhost:8080/

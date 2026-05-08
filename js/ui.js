@@ -241,6 +241,27 @@ export class UIManager {
         el.className = 'segment divider';
         break;
 
+      case 'ending':
+        el.className = 'segment ending-panel';
+        el.id = 'story-end';
+        seg.content.forEach(line => {
+          const p = document.createElement('p');
+          if (line.style === 'end-symbol') {
+            p.className = 'end-symbol';
+            p.id = 'restart-btn';
+            p.title = '握手，回到起点';
+            p.textContent = line.text;
+          } else if (line.style === 'end-text') {
+            p.className = 'end-text';
+            p.textContent = line.text;
+          } else if (line.style === 'end-hint') {
+            p.className = 'restart-hint';
+            p.textContent = line.text;
+          }
+          el.appendChild(p);
+        });
+        break;
+
       default:
         el.className = 'segment';
         if (seg.content) {
