@@ -721,17 +721,28 @@ body { scrollbar-width: none; }
 /* --- Responsive --- */
 @media (max-width: 768px) {
   html { font-size: 15px; }
-  #text-overlay { padding: 80vh 16px 30vh; max-width: 100%; }
+  #text-overlay { padding: 0 16px 30vh; max-width: 100%; }
+  #title-screen { padding: 8vh 0 6vh; }
   #title-screen h1 { font-size: 2.2rem; }
-  .segment { padding: 20px 18px; margin: 40px 0; }
-  .segment.poem { padding: 40px 14px; }
+  .segment.chapter-header { padding: 40px 16px 14px; margin: 50px 0 24px; }
   .segment.chapter-header h2 { font-size: 1.5rem; }
-  #nav-panel { width: 220px; }
+  .segment.poem { padding: 40px 14px; margin: 50px 0; }
+  .segment.divider { margin: 16px 0; }
+  .segment.system-msg { padding: 14px 16px; margin: 24px 0; }
+  .segment.paper { padding: 16px 18px; margin: 20px 0; }
+  #nav-panel { width: 220px; max-height: 50vh; }
 }
 
 @media (max-width: 480px) {
   html { font-size: 14px; }
   #title-screen h1 { font-size: 1.8rem; }
-  #controls { top: auto; bottom: 20px; right: 12px; }
-  #chapter-nav { top: auto; bottom: 20px; left: 12px; }
+  #title-screen { padding: 6vh 0 4vh; }
+  #controls { top: auto; bottom: 20px; right: 10px; }
+  #chapter-nav { top: auto; bottom: 20px; left: 10px; }
+  #nav-panel { width: 200px; max-height: 45vh; bottom: 60px; top: auto; }
+  #nav-panel:not(.hidden) { z-index: 20; }
+  .segment.chapter-header { padding: 30px 12px 10px; margin: 36px 0 18px; }
+  .segment.chapter-header h2 { font-size: 1.35rem; }
+  .segment.poem { padding: 30px 10px; margin: 36px 0; }
+  .segment.divider { margin: 12px 0; }
 }

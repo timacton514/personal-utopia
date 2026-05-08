@@ -295,6 +295,7 @@ export class UIManager {
     // Nav toggle
     this.navToggle.addEventListener('click', (e) => {
       e.stopPropagation();
+      e.preventDefault();
       this.navPanel.classList.toggle('hidden');
     });
 
@@ -302,7 +303,7 @@ export class UIManager {
     document.addEventListener('click', (e) => {
       if (!this.navPanel.classList.contains('hidden') &&
           !this.navPanel.contains(e.target) &&
-          e.target !== this.navToggle) {
+          !this.navToggle.contains(e.target)) {
         this.closeNav();
       }
     });
