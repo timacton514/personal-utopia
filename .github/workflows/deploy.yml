@@ -1,0 +1,67 @@
+# 构建 Vite 站点并部署到 GitHub Pages
+#
+# 一次性配置（仓库管理员操作，只需做一次）：
+#   GitHub 仓库 → Settings → Pages → Build and deployment → Source
+#   选择 “GitHub Actions”（不要选 “Deploy from a branch”）
+#
+# 之后每次推送 master 分支都会自动构建并发布；
+# 也可以在仓库 Actions 页手动触发本工作流（workflow_dispatch）。
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+# GitHub Pages 官方 Actions 部署所需权限：
+# 读取仓库内容、写入 Pages、用 OIDC 令牌完成部署
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 同一时刻只允许一个 Pages 部署；新的推送会取消排队中的旧部署
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    # github-pages 环境地址会显示在仓库首页的 Deployments 中
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

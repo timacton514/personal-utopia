@@ -1,0 +1,77 @@
+/* --- Controls --- */
+#controls {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+  display: flex;
+  gap: 8px;
+}
+
+.ctrl-btn {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: var(--surface-dark);
+  color: var(--text-dim);
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: flex; align-items: center; justify-content: center;
+  transition: all var(--transition-medium);
+  backdrop-filter: blur(8px);
+}
+
+.ctrl-btn:hover {
+  border-color: rgba(255,255,255,0.3);
+  color: var(--text-primary);
+}
+
+.ctrl-btn.active {
+  border-color: var(--cube-green);
+  color: var(--cube-green);
+  box-shadow: 0 0 10px rgba(0,255,136,0.12);
+}
+
+.atm-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  width: 38px; height: 38px;
+}
+
+.atm-btn svg {
+  flex-shrink: 0;
+}
+
+.atm-dots {
+  font-size: 0.5rem;
+  line-height: 1;
+  letter-spacing: 0.15em;
+  color: var(--text-dim);
+  transition: color var(--transition-fast);
+}
+
+.atm-btn:hover .atm-dots,
+.atm-btn[data-level] .atm-dots {
+  color: var(--cube-green);
+}
+
+/* --- Progress Bar --- */
+#progress-bar {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: rgba(255,255,255,0.04);
+  z-index: 10;
+}
+
+#progress-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--cube-green);
+  transition: width 0.1s linear;
+  box-shadow: 0 0 6px rgba(0,255,136,0.4);
+}

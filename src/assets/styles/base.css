@@ -1,0 +1,60 @@
+/* ============================================
+   私人的乌托邦 — Theme, Typography, Layout, Animations
+   ============================================ */
+
+/* --- CSS Custom Properties --- */
+:root {
+  --mars-red: #C1440E;
+  --mars-deep: #8B2500;
+  --mars-dust: #E8A87C;
+  --mars-sky-near: #D4A574;
+  --mars-sky-far: #1A0E08;
+  --cube-green: #00FF88;
+  --cube-green-dim: #006644;
+  --oil-film: #1AFFB0;
+
+  --surface-dark: rgba(18, 8, 4, 0.88);
+  --surface-medium: rgba(25, 12, 6, 0.78);
+  --surface-light: rgba(35, 18, 10, 0.65);
+  --surface-paper: rgba(42, 28, 12, 0.82);
+
+  --text-primary: #F0DFC8;
+  --text-dim: #9A8070;
+  --text-deleted: #5A3A2A;
+  --text-theta: #FFB088;
+  --text-tau: #88FFCC;
+  --text-tau-dagger: #66FFAA;
+  --text-system: #B0A090;
+
+  --border-theta: #C06030;
+  --border-tau: #30A070;
+  --border-tau-dagger: #20D080;
+
+  --font-serif: "Noto Serif SC", "SimSun", "STSong", "Songti SC", serif;
+  --font-sans: "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", system-ui, sans-serif;
+  --font-mono: "Cascadia Code", "Fira Code", "Consolas", "Source Code Pro", monospace;
+
+  --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-medium: 0.35s ease;
+  --transition-fast: 0.2s ease;
+}
+
+/* --- Reset & Base --- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  font-size: 17px;
+}
+
+body {
+  background: #0A0402;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Hide scrollbar but keep functionality */
+body::-webkit-scrollbar { width: 0; }
+body { scrollbar-width: none; }

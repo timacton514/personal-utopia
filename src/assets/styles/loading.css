@@ -1,0 +1,30 @@
+/* --- Loading Screen --- */
+#loading {
+  position: fixed; inset: 0; z-index: 100;
+  background: #0A0402;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.8s ease;
+  pointer-events: all;
+}
+
+#loading.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.loading-cube {
+  width: 36px; height: 36px;
+  background: var(--cube-green);
+  animation: cube-loading 1.2s ease infinite;
+  box-shadow: 0 0 24px rgba(0,255,136,0.5);
+  margin-bottom: 20px;
+}
+
+#loading p {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+}

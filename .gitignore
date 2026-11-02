@@ -1,13 +1,25 @@
-# Python cache
-__pycache__/
+# 依赖与构建产物
+node_modules/
+dist/
+.npm-cache/
 
-# OS files
+# 本地环境变量
+*.local
+.env
+.env.*
+!.env.example
+
+# 日志
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# 系统 / 编辑器
 .DS_Store
 Thumbs.db
-
-# Editor
 .vscode/
 .idea/
 
-# Node (if added later)
-node_modules/
+# Python 缓存（历史遗留）
+__pycache__/

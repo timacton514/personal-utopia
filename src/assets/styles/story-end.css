@@ -1,0 +1,47 @@
+/* --- Story End --- */
+.segment.ending-panel {
+  text-align: center;
+  border-left: none;
+  background: transparent;
+  padding: 80px 20px 60px;
+  margin: 40px 0;
+  opacity: 0.75;
+}
+
+.end-symbol {
+  font-size: 2rem;
+  margin-bottom: 12px;
+  cursor: pointer;
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 1px solid rgba(0,255,136,0.18);
+  transition: all var(--transition-medium);
+  background: rgba(0,255,136,0.04);
+}
+
+.end-symbol:hover {
+  color: var(--cube-green);
+  border-color: rgba(0,255,136,0.45);
+  box-shadow: 0 0 28px rgba(0,255,136,0.2);
+  transform: scale(1.08);
+  background: rgba(0,255,136,0.1);
+}
+
+.end-symbol:active {
+  transform: scale(0.95);
+}
+
+.end-text {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  opacity: 0.5;
+  margin-bottom: 4px;
+}
+
+.restart-hint {
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  opacity: 0.55;
+  margin-top: 8px;
+}

@@ -48,6 +48,8 @@ export class MarsScene {
     this.atmosphereLevel = 3;
     this.cubeState = 'IDLE';
     this.vineLength = 0;
+    this.builtVineLength = -1;
+    this.handleResize = () => this.onResize();
 
     this.init();
   }
@@ -97,7 +99,7 @@ export class MarsScene {
     this.createMeteors();
 
     // Resize handler
-    window.addEventListener('resize', () => this.onResize());
+    window.addEventListener('resize', this.handleResize);
   }
 
   createSky() {
@@ -338,6 +340,10 @@ export class MarsScene {
   }
 
   updateVines(length) {
+    // 藤蔓长度几乎没变时跳过重建：每次重建都要新建一批 TubeGeometry，代价较高
+    if (Math.abs(length - this.builtVineLength) < 0.002) return;
+    this.builtVineLength = length;
+
     // Remove old vines
     while (this.vineGroup.children.length > 0) {
       this.vineGroup.remove(this.vineGroup.children[0]);
@@ -595,6 +601,27 @@ export class MarsScene {
     this.updateMeteors(this.scrollProgress);
     this.updateCamera();
     this.renderer.render(this.scene, this.camera);
+  }
+
+  /**
+   * 释放 WebGL 资源并移除全局事件监听，供组件卸载时调用（例如开发期热更新）。
+   */
+  dispose() {
+    window.removeEventListener('resize', this.handleResize);
+
+    const materials = new Set();
+    const geometries = new Set();
+    this.scene.traverse((object) => {
+      if (object.geometry) geometries.add(object.geometry);
+      if (Array.isArray(object.material)) {
+        object.material.forEach((material) => materials.add(material));
+      } else if (object.material) {
+        materials.add(object.material);
+      }
+    });
+    geometries.forEach((geometry) => geometry.dispose());
+    materials.forEach((material) => material.dispose());
+    this.renderer.dispose();
   }
 
   onResize() {

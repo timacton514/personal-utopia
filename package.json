@@ -1,0 +1,23 @@
+{
+  "name": "personal-utopia",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "私人的乌托邦 — 交互式火星主题日记体小说（Vue 3 + Vite）",
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "three": "0.163.0",
+    "vue": "^3.5.44"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.10",
+    "vite": "^8.3.5"
+  }
+}
